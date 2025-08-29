@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html prefix="og: //ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="Проверьте свои знания в области ультразвуковой диагностики животных">
+    <meta property="og:type" content="website">
+    <title>Ветеринарная УЗИ-викторина</title>
+    <meta property="og:title" content="Ветеринарная УЗИ-викторина">
+    <meta property="og:image" content="https://example.com/ultrasound-image.jpg">
+    <meta property="og:url" content="https://example.com/vet-ultrasound-quiz/">
+    <meta property="og:type" content="website">
+    
+    <!-- Для Telegram (дополнительно) -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ветеринарная УЗИ-викторина">
+    <meta property="twitter:description" content="Проверьте свои знания в области ультразвуковой диагностики животных">
+    <meta property="twitter:image" content="https://example.com/ultrasound-image.jpg">
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild6163-6637-4330-a661-633362306233/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <img src="images/logo.png" alt="Логотип" class="logo">
+            <div class="user-info">
+                <img id="user-photo" src="images/icons/user.png" alt="">
+                <span id="user-name"></span>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="screen" id="start-screen">
+                <h1>Ветеринарная УЗИ-викторина</h1>
+                <p>Проверьте свои знания в области ультразвуковой диагностики животных!</p>
+                <button id="start-btn" class="btn">Начать игру</button>
+                <button id="rules-btn" class="btn secondary">Правила</button>
+            </div>
+
+            <div class="screen" id="quiz-screen" style="display: none;">
+                <div class="progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="progress-text">1/5</span>
+                </div>
+                <div class="question-container">
+                    <h2 id="question-text">Загрузка вопроса...</h2>
+                </div>
+                <div class="options" id="options-container">
+                    <!-- Варианты ответов будут добавляться динамически -->
+                </div>
+                <div class="timer-container">
+                    <div class="timer" id="timer">30</div>
+                </div>
+            </div>
+
+            <div class="screen" id="result-screen" style="display: none;">
+                <h2 id="result-title">Результат</h2>
+                <div id="result-explanation"></div>
+                <button id="next-btn" class="btn">Следующий вопрос</button>
+            </div>
+
+            <div class="screen" id="final-screen" style="display: none;">
+                <h2>Викторина завершена!</h2>
+                <div class="score-container">
+                    <p>Ваш результат: <span id="final-score">0</span>/5</p>
+                    <p id="score-message"></p>
+                </div>
+                <div class="courses">
+                    <h3>Рекомендуемые курсы для повышения квалификации:</h3>
+                    <ul>
+                        <li><a href="https://dpo.v-gau.ru/programs/veterinary-echocardiography" target="_blank">Ветеринарная эхокардиография: техники, анализ типичных ошибок интерпретации результатов</a></li>
+                        <li><a href="https://dpo.v-gau.ru/programs/cardiopulmonary-resuscitation" target="_blank">Сердечно-легочная реанимация</a></li>
+                        <li><a href="https://dpo.v-gau.ru/programs/veterinary-ultrasound-diagnostics" target="_blank">Ветеринарная ультразвуковая диагностика мелких домашних животных. УЗИ на первичном приеме</a></li>
+                        <li><a href="https://dpo.v-gau.ru/programs/abdominal-surgery" target="_blank">Абдоминальная хирургия в практике ветеринарного врача</a></li>
+                    </ul>
+                </div>
+                <button id="restart-btn" class="btn">Играть снова</button>
+                <button id="share-btn" class="btn secondary">Поделиться</button>
+            </div>
+
+            <div class="screen" id="rules-screen" style="display: none;">
+                <h2>Правила игры</h2>
+                <ol class="rules-list">
+                    <li>Вам будет представлено 5 вопросов по УЗИ-диагностике животных</li>
+                    <li>Выберите один правильный ответ из трех предложенных вариантов</li>
+                    <li>На каждый вопрос дается 30 секунд</li>
+                    <li>За правильный ответ вы получаете 1 балл</li>
+                    <li>После ответа вы увидите объяснение</li>
+                </ol>
+                <button id="back-btn" class="btn">Назад</button>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <div class="footer-social">
+                        <a href="https://t.me/vgaudpo" target="_blank" rel="noopener noreferrer">
+                            <img src="https://static.tildacdn.com/tild3532-3534-4430-b662-346535353530/Telegram.svg" alt="Telegram" class="social-icon">
+                        </a>
+                        <a href="https://dpo.v-gau.ru/programs/veterinary-ultrasound-diagnostics" class="footer-link" target="_blank" rel="noopener noreferrer">
+                            Ступенька к профессионализму
+                        </a>
+                    </div>
+                </div>       
+                <div class="footer-center">
+                    <a href="https://vgau.edu37.ru/calendar/" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        Календарь образовательных событий
+                    </a>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-social">
+                        <a href="https://vk.com/dpovgau" target="_blank" rel="noopener noreferrer">
+                            <img src="https://v-gau.ru/upload/medialibrary/d07/r8b5w1cgrf8fjmn53iy10pdif88cadai.png" alt="VKontakte" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>		
+            <p>© НПО "Артель", 2025 | Для ветеринарных специалистов</p>
+        </footer>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
